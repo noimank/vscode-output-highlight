@@ -3,7 +3,7 @@
   "publisher": "noimank",
   "displayName": "Output Highlight",
   "description": "Highlight output log for VSCode hosted builds",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "repository": { "url": "https://github.com/noimank/vscode-output-highlight" },
   "license": "MIT",
   "icon": "assets/logo.png",
@@ -18,39 +18,35 @@
       "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
-              "scope" : "markup.other.log.error",
+              "scope" : "OutputHightlight.log.error",
               "settings": { "foreground": "#FF0000" }
             },
             {
-              "scope" : "markup.other.log.warn",
+              "scope" : "OutputHightlight.log.warning",
               "settings": { "foreground": "#f1f52acc" }
             },
             {
-              "scope" : "markup.other.log.info",
+              "scope" : "OutputHightlight.log.info",
               "settings": { "foreground": "#2cd3c5" }
             },
             {
-              "scope" : "markup.other.log.debug",
+              "scope" : "OutputHightlight.log.debug",
               "settings": { "foreground": "#888585" }
-            },
-            {
-              "scope" : "markup.other.log.highlight",
-              "settings": { "foreground": "#19ff04" }
             }
         ]
       }
     },
     "languages": [
       {
-        "id": "Log",
+        "id": "OutputLog",
         "configuration": "./language-configuration.json",
         "mimetypes": [ "log", "text/log", "text/x-log", "text/x-code-output", "x-code-output" ]
       }
     ],
     "grammars": [
       {
-        "language": "Log",
-        "scopeName": "code.log",
+        "language": "OutputLog",
+        "scopeName": "OutputHightlight.log",
         "path": "./syntaxes/log.tmLanguage.json",
         "embeddedLanguages": {
           "meta.embedded.block.cpp": "c++",
