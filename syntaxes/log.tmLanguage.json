@@ -1,84 +1,101 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "OutputLog",
-	"scopeName": "OutputHightlight.log",
+	"name": "Log",
+	"scopeName": "code.log",
 	"patterns": [
-		{
-			"include": "#error"
-		},
-		{
-			"include": "#info"
-		},
-		{
-			"include": "#warning"
-		},
-		{
-			"include": "#debug"
-		}
+		{ "include": "#gcc" },
+		{ "include": "#clang" },
+		{ "include": "#msvc" },
+		{ "include": "#cmake" }
 	],
 	"repository": {
-		"error": {
+		"gcc": {
 			"patterns": [
 				{
-					"match": "\\b(?i:error|err|fail|failed|failure|fatal|exception|critical)\\b[:| ].*$",
-					"name": "OutputHightlight.log.error"
+					"match": "[Ee]rror: .*$",
+					"name": "markup.other.log.error"
+				},
+				
+				
+				{
+					"match": "undefined reference to `.*'",
+					"name": "markup.other.log.error"
 				},
 				{
-					"match": "[Uu]ndefined reference to [`|'].*[`|']",
-					"name": "OutputHightlight.log.error"
+					"match": "[Mm]ultiple definition of `.*'",
+					"name": "markup.other.log.error"
 				},
 				{
-					"match": "[Mm]ultiple definition of [`|'].*[`|']",
-					"name": "OutputHightlight.log.error"
+					"match": "[Ww]arning: .*$",
+					"name": "markup.other.log.warn"
 				},
 				{
-					"match": "\\b(E[0-9]+|ERR_[A-Z_]+|ECODE_[A-Z_]+)\\b",
-					"name": "OutputHightlight.log.error"
+					"match": "[Ww]arn: .*$",
+					"name": "markup.other.log.warn"
 				},
 				{
-					"match": "\\b(Failed to|Could not|Invalid)",
-					"name": "OutputHightlight.log.error"
-				}
-			]
-		},
-		"warning": {
-			"patterns": [
-				{
-					"match": "\\b(?i:warn|warning|note)\\b[:| ].*$",
-					"name": "OutputHightlight.log.warning"
-				}
-			]
-		},
-		"info": {
-			"patterns": [
+					"match": "[Nn]ote: .*$",
+					"name": "markup.other.log.info"
+				},
 				{
 					"match": "[Ii]nfo: .*$",
-					"name": "OutputHightlight.log.info"
+					"name": "markup.other.log.info"
 				},
 				{
-					"begin": "In function [`|'].*[`|']",
+					"begin": "In function ",
 					"end": ":",
-					"captures": {
-						"0": {
-							"name": "OutputHightlight.log.info"
-						}
-					},
+					"captures": { "0": { "name": "markup.other.log.info" } },
 					"contentName": "meta.embedded.block.cpp",
-					"patterns": [
-						{
-							"include": "source.cpp"
-						}
-					]
+					"patterns": [ {"include": "source.cpp"} ]
 				}
 			]
 		},
-		"debug": {
+		"clang": {
+			"patterns": [
+			]
+		},
+		"msvc": {
+			"patterns": [
+				{
+					"match": "[Ee]rror C[0-9]+: .*$",
+					"name": "markup.other.log.error"
+				},
+				{
+					"match": "[Ee]rror LNK[0-9]+: .*$",
+					"name": "markup.other.log.error"
+				},
+				{
+					"match": "[Ww]arning C[0-9]+: .*$",
+					"name": "markup.other.log.warn"
+				},
+				{
+					"match": "[Nn]ote: .*$",
+					"name": "markup.other.log.info"
+				}
+			]
+		},
+		"cmake": {
 			"patterns": [
 				{
 					"match": "^\\[[A-Za-z]+\\]",
-					"name": "OutputHightlight.log.debug"
+					"name": "markup.other.log.debug"
+				},
+				{
+					"match": "\\[[0-9]+/[0-9]+\\]",
+					"name": "markup.other.log.highlight"
+				},
+				{
+					"match": "FAILED:",
+					"name": "markup.other.log.error"
+				},
+				{
+					"match": "Error.*",
+					"name": "markup.other.log.error"
 				}
 			]
 		}
 	}
 }
+
+
+
