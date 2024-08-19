@@ -1,5 +1,4 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "OutputLog",
 	"scopeName": "OutputHightlight.log",
 	"patterns": [
@@ -24,11 +23,11 @@
 					"name": "OutputHightlight.log.error"
 				},
 				{
-					"match": "[Uu]ndefined reference to [`|'].*[`|']",
+					"match": "[Uu]ndefined reference to [`|'|‘].*[`|'|‘]",
 					"name": "OutputHightlight.log.error"
 				},
 				{
-					"match": "[Mm]ultiple definition of [`|'].*[`|']",
+					"match": "[Mm]ultiple definition of [`|'|‘].*[`|'|‘]",
 					"name": "OutputHightlight.log.error"
 				},
 				{
@@ -56,21 +55,12 @@
 					"name": "OutputHightlight.log.info"
 				},
 				{
-					"begin": "In function [`|'].*[`|']",
+					"begin": "In function",
 					"end": ":",
-					"captures": {
-						"0": {
-							"name": "OutputHightlight.log.info"
-						}
-					},
-					"contentName": "meta.embedded.block.cpp",
-					"patterns": [
-						{
-							"include": "source.cpp"
-						}
-					]
+					"name": "OutputHightlight.log.info"
 				}
 			]
+			
 		},
 		"debug": {
 			"patterns": [

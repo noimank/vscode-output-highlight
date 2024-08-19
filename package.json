@@ -3,7 +3,7 @@
   "publisher": "noimank",
   "displayName": "Output Highlight",
   "description": "Highlight output log for VSCode hosted builds",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "repository": { "url": "https://github.com/noimank/vscode-output-highlight" },
   "license": "MIT",
   "icon": "assets/logo.png",
