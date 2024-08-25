@@ -79,3 +79,7 @@ Provides a wider matching range, such as matching Error, while the original vers
 2.重构代码，修复插件特别容易与其他插件冲突的问题，如Code Runner、File Watcher、Crypto Tools等类似插件冲突，提高插件高亮功能的可用性
 
 3.修复In function关键字的识别，加强识别能力
+
+
+### 0.1.10
+1.恢复在插件不冲突的情况下，链接识别生效的功能。

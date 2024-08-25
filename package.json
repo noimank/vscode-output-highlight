@@ -3,7 +3,7 @@
   "publisher": "noimank",
   "displayName": "Output Highlight",
   "description": "Highlight output log for VSCode hosted builds",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "repository": { "url": "https://github.com/noimank/vscode-output-highlight" },
   "license": "MIT",
   "icon": "assets/logo.png",
@@ -38,20 +38,18 @@
     },
     "languages": [
       {
-        "id": "OutputLog",
+        "id": "log",
+        "aliases": [ "Log" ],
         "configuration": "./language-configuration.json",
         "mimetypes": [ "log", "text/log", "text/x-log", "text/x-code-output", "x-code-output" ]
       }
     ],
     "grammars": [
       {
-        "language": "OutputLog",
+        "language": "log",
         "scopeName": "OutputHightlight.log",
-        "path": "./syntaxes/log.tmLanguage.json",
-        "embeddedLanguages": {
-          "meta.embedded.block.cpp": "c++",
-          "source.cpp": "c++"
-        }
+        "path": "./syntaxes/log.tmLanguage.json"
+
       }
     ]
 
